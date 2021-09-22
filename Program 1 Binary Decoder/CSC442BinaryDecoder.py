@@ -1,7 +1,9 @@
+################################################################
 #Group: Hermit sub-team A
 #Names: Cori Allbritton, Varat Chaichamnarn, Thien Vu 
 #Desc: Decodes binary into 7-bit or 8-bit ASCII and prints it
 #Date: 9-21-2021
+################################################################
 import fileinput
 
 #detects whether its the ASCII is in 7bit or 8bit
