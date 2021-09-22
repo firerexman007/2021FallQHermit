@@ -1,6 +1,14 @@
-# Pragram 2 Vigenere Cipher 
-# Team: Hermit 2021 Fall Quarter 
-# Class: CSC 442-001
+################################################################
+#Group: Hermit sub-team B
+#Names: Matthew Tucker, Siva, Colby 
+#Desc: to encode or decode strings and output it
+#Date: 9-22-2021
+################################################################
+#Division of labor:
+#Matthew: 
+#Siva: 
+#Colby: 
+#Each member adds to Program 2 Info.txt about there part(how it works)
 
 ########### global Variables 
 inputs =[] #keeps all inputs 
