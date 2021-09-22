@@ -12,12 +12,24 @@
 ## All code done in the class will be stored here for easy transfer and save of code
 #
 ## Sub-Teams(Chosen by Wheel of Names):
-### Program 1: Binary Decoder
+### Program 1: Binary Decoder : Due:9/24/2021
 ### Varat
 ### Thien
 ### Cori
 #
-### Program 2: Vigenère Cipher
+### Program 2: Vigenère Cipher : Due:9/24/2021
 ### Matthew
 ### Siva
 ### Colby
+#
+### Program 3: FTP : Due:10/1/2021
+#
+### Program 4: Chat : Due:10/15/2021
+#
+### Program 5: TimeLock : Due:10/29/2021
+#
+### Program 6: XOR : Due:10/29/2021
+#
+### Program 7: Steganography : Due:10/29/2021
+
+
