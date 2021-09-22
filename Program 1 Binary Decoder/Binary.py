@@ -4,6 +4,15 @@
 #Desc: Decodes binary into 7-bit or 8-bit ASCII and prints it
 #Date: 9-21-2021
 ################################################################
+#Division of labor:
+#Cori: Input files
+#Varat: Decoding ASCII
+#Thien: Differentiation of 7-bit and 8-bit ASCII
+#Wheel of names when done: Writeup
+#Update: Cori's Python is messed up,
+#        so she'll write the report instead.
+#        Thien takes over file input. 
+
 import fileinput
 
 #detects whether its the ASCII is in 7bit or 8bit
