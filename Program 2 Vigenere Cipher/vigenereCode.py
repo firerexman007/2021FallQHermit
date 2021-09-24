@@ -26,6 +26,7 @@ alphaList = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 def change(inputs, formattedKey):
     count2 = 0
     alphaKey = ""
+    transition2 = ""
     for word in inputs:
         print(word)
         temp = [] 
@@ -38,12 +39,13 @@ def change(inputs, formattedKey):
                 print(alphaKey)
             else:
                 temp.append(char)
-        transition += (''.join(temp))
-        transition += " "
+        transition2 += (''.join(temp))
+        transition2 += " "
+    return transition2
 
 def decryp(inputs, formattedKey):
     cipherText =""
-    change(inputs, formattedKey)
+    transition= change(inputs, formattedKey)
     for j in range(len(transition)):
         currentletter = transition[j]
         if currentletter.isalpha():
