@@ -68,9 +68,7 @@ def encryp(L:list, key):
     transition= change(inputs, formattedKey) # change to key
     for w in range(len(inputs)): # loop through inputs
         word = inputs[w] # each input is word
-        print(word)
         currentTransition=transition[w] # each transition is currentTransition
-        print(currentTransition)
         cipherText =""
         for j in range(len(word)): # loop through letters in word and decryp
             if word[j].isalpha():
@@ -83,9 +81,8 @@ def encryp(L:list, key):
     return empty 
 
 ###########Start of Program
-if len(sys.argv)>3: # for fill handling
-    pass
-elif len(sys.argv)>2: # for user input handling
+
+if len(sys.argv)>2: # for user input handling
     if(sys.argv[1] != "-e" and sys.argv[1] != "-d"):
         print(sys.argv[1])
         print("Please -e for Encryption and -d for Decryption mode")
