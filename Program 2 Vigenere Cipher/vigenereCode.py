@@ -38,7 +38,8 @@ def change(inputs, formattedKey):
                 print(alphaKey)
             else:
                 temp.append(char)
-        transition.append(''.join(temp))
+        transition += (''.join(temp))
+        transition += " "
 
 def decryp(inputs, formattedKey):
     cipherText =""
