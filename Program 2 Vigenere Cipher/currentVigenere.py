@@ -96,8 +96,11 @@ if len(sys.argv)>2: # for user input handling
     #get user input (LOOP TILL Ctrl+D)
     for line in sys.stdin: 
         inputs.append(line)
-    
-    print("^D") #ctrl+D print out 
+
+    # determin if out or input from file if so no ^D
+    if sys.stdout.isatty():
+        if sys.stdin.isatty():
+            print("^D") #ctrl+D print out 
 
     # call functions 
     if(mode == "-e"):
