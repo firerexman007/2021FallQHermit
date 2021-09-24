@@ -43,20 +43,20 @@ def change(inputs, formattedKey):
 
 def decryp(inputs, formattedKey):
     empty = [] 
-    cipherText =""
+    word = ""
     transition= change(inputs, formattedKey)
-    return transition
-    # for w in range(len(inputs)):
-        # word = inputs[w]
-        # for j in range(len(word)):
-            # currentletter = word[j]
-            # if currentletter.isalpha():
-                # ciphercharindex = (26 + (alphaList.index(word[j].upper()) - alphaList.index(transition[j].upper()))) % 26
-                # cipherText += alphaList[ciphercharindex].upper() if word[j].isupper() else alphaList[ciphercharindex].lower()
-            # else:
-                    # cipherText += word[j] 
-    
-    # return cipherText
+    for w in range(len(inputs)):
+        word = inputs[w]
+        cipherText =""
+        for j in range(len(word)):
+            currentletter = word[j]
+            if currentletter.isalpha():
+                ciphercharindex = (26 + (alphaList.index(word[j].upper()) - alphaList.index(transition[j].upper()))) % 26
+                cipherText += alphaList[ciphercharindex].upper() if word[j].isupper() else alphaList[ciphercharindex].lower()
+            else:
+                cipherText += word[j] 
+        empty.append(cipherText)
+    return empty
     
     
         
