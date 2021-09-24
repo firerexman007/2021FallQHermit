@@ -13,20 +13,29 @@
 
 #imports 
 import sys
+import re
 
 ########### global Variables 
 inputs = [] # all input list
 output = [] # all output list 
 # two alpabet for lower and upper case 
-alp1 = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
-alp2 = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
+alphaList = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
 ########### functions
-def decryp(L:list, key):
+def decryp(L:list, formattedKey):
+    count2 = 0
     for word in inputs:
+        temp = [] 
         for char in word:
-            print(char)
-            # will need to finish
+            if char.isalpha():
+                alphaKey += formattedKey[count2 % len(formattedKey)]
+                temp.append(alphaKey)
+                count2 +=1
+            else:
+                temp.append(char)
+        for x in temp:
+            output.append(' '.join(temp))
+        
 
 def encryp(L:list, key):
     pass 
@@ -35,10 +44,14 @@ def encryp(L:list, key):
 if len(sys.argv)>3: # for fill handling
     pass
 elif len(sys.argv)>2: # for user input handling
-    
+    if(sys.argv[1] != "-e" and sys.argv[1] != "-d"):
+        print(sys.argv[1])
+        print("Please -e for Encryption and -d for Decryption mode")
+        exit(0)
     #get system variables 
-    Etype = sys.argv[1] # this is the type
+    mode = sys.argv[1] # this is the type
     Key = sys.argv[2] # this is the key
+    formattedKey = "".join(re.split("[^a-zA-Z]*", sys.argv[2]))
     
     #get user input (LOOP TILL Ctrl+D)
     for line in sys.stdin: 
@@ -47,10 +60,10 @@ elif len(sys.argv)>2: # for user input handling
     print("^D") #ctrl+D print out 
 
     # call functions 
-    if(Etype == "-e"):
-        encryp(inputs,Key)
-    elif(Etype == "-d"):
-        decryp(inputs,Key)
+    if(mode == "-e"):
+        encryp(inputs,formattedKey)
+    elif(mode == "-d"):
+        decryp(inputs,formattedKey)
     
     # print output
     for x in output:
