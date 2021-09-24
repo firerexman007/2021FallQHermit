@@ -31,7 +31,7 @@ def decryp(inputs, formattedKey):
         for char in word:
             print(char)
             if char.isalpha():
-                alphaKey += formattedKey[count2 % len(formattedKey)]
+                alphaKey = formattedKey[count2 % len(formattedKey)]
                 temp.append(alphaKey)
                 count2 +=1
                 print(alphaKey)
