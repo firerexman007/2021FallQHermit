@@ -17,8 +17,8 @@ import re
 
 ########### global Variables 
 inputs = [] # all input list
-transition = ""
-output = "" # all output list 
+transition = []
+output = [] # all output list 
 # two alpabet for lower and upper case 
 alphaList = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
@@ -26,35 +26,37 @@ alphaList = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 def change(inputs, formattedKey):
     count2 = 0
     alphaKey = ""
-    transition2 = ""
+    returnL = []
     for word in inputs:
-        print(word)
         temp = [] 
+        transition2 = ""
         for char in word:
-            print(char)
             if char.isalpha():
                 alphaKey = formattedKey[count2 % len(formattedKey)]
                 temp.append(alphaKey)
                 count2 +=1
-                print(alphaKey)
             else:
                 temp.append(char)
         transition2 += (''.join(temp))
-        transition2 += " "
-    return transition2
+        returnL.append(transition2)
+    return returnL
 
 def decryp(inputs, formattedKey):
+    empty = [] 
     cipherText =""
     transition= change(inputs, formattedKey)
-    for j in range(len(transition)):
-        currentletter = transition[j]
-        if currentletter.isalpha():
-            ciphercharindex = (26 + (alphaList.index(transition[j].upper()) - alphaList.index(alphaKey[j].upper()))) % 26
-            cipherText += alphaList[ciphercharindex].upper() if transition[j].isupper() else alphaList[ciphercharindex].lower()
-        else:
-                cipherText += transition[j] 
+    return transition
+    # for w in range(len(inputs)):
+        # word = inputs[w]
+        # for j in range(len(word)):
+            # currentletter = word[j]
+            # if currentletter.isalpha():
+                # ciphercharindex = (26 + (alphaList.index(word[j].upper()) - alphaList.index(transition[j].upper()))) % 26
+                # cipherText += alphaList[ciphercharindex].upper() if word[j].isupper() else alphaList[ciphercharindex].lower()
+            # else:
+                    # cipherText += word[j] 
     
-    return cipherText
+    # return cipherText
     
     
         
@@ -88,7 +90,8 @@ elif len(sys.argv)>2: # for user input handling
         output = decryp(inputs,formattedKey)
     
     # print output
-    print(output)
+    for x in output:
+        print(x)
 else: # invalid system
     print("INVALID CALL")
     print("python3 " + sys.argv[0] + "-e KEY")
