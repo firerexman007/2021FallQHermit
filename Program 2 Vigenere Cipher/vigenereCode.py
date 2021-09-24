@@ -22,20 +22,22 @@ output = [] # all output list
 alphaList = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
 ########### functions
-def decryp(L:list, formattedKey):
+def decryp(inputs, formattedKey):
     count2 = 0
     alphaKey = ""
     for word in inputs:
+        print(word)
         temp = [] 
         for char in word:
+            print(char)
             if char.isalpha():
                 alphaKey += formattedKey[count2 % len(formattedKey)]
                 temp.append(alphaKey)
                 count2 +=1
+                print(alphaKey)
             else:
                 temp.append(char)
-        for x in temp:
-            output.append(' '.join(temp))
+        output.append(' '.join(temp))
         
 
 def encryp(L:list, key):
