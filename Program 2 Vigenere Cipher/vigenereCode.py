@@ -23,7 +23,7 @@ output = [] # all output list
 alphaList = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
 ########### functions
-def change(inputs, formattedKey):
+def change(inputs, formattedKey): # This function changes to what key is 
     count2 = 0
     alphaKey = ""
     returnL = []
@@ -39,18 +39,19 @@ def change(inputs, formattedKey):
                 temp.append(char)
         transition2 += (''.join(temp))
         returnL.append(transition2)
-    return returnL
+    return returnL # Returns list of each input 
 
-def decryp(inputs, formattedKey):
-    empty = [] 
-    word = ""
-    transition= change(inputs, formattedKey)
-    for w in range(len(inputs)):
-        word = inputs[w]
+def decryp(inputs, formattedKey): # does decryptions 
+    empty = [] # output list for this group
+    word = "" 
+    transition= change(inputs, formattedKey) # change to key
+    for w in range(len(inputs)): # loop through inputs
+        word = inputs[w] # each input is word
         cipherText =""
-        for j in range(len(word)):
+        for j in range(len(word)): # loop through letters in word and decryp
             currentletter = word[j]
             if currentletter.isalpha():
+                #CURRENT ERROR IS HERE FIX PLEASE 
                 ciphercharindex = (26 + (alphaList.index(word[j].upper()) - alphaList.index(transition[j].upper()))) % 26
                 cipherText += alphaList[ciphercharindex].upper() if word[j].isupper() else alphaList[ciphercharindex].lower()
             else:
