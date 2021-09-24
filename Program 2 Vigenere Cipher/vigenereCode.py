@@ -17,12 +17,13 @@ import re
 
 ########### global Variables 
 inputs = [] # all input list
-output = [] # all output list 
+transition = ""
+output = "" # all output list 
 # two alpabet for lower and upper case 
 alphaList = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
 ########### functions
-def decryp(inputs, formattedKey):
+def change(inputs, formattedKey):
     count2 = 0
     alphaKey = ""
     for word in inputs:
@@ -37,7 +38,23 @@ def decryp(inputs, formattedKey):
                 print(alphaKey)
             else:
                 temp.append(char)
-        output.append(' '.join(temp))
+        transition.append(''.join(temp))
+
+def decryp(inputs, formattedKey):
+    cipherText =""
+    change(inputs, formattedKey)
+    for j in range(len(transition)):
+    if currentletter.isalpha():
+        ciphercharindex = (26 + (
+                        alphaList.index(transition[j].upper()) - alphaList.index(alphaKey[j].upper()))) % 26
+                cipherText += alphaList[ciphercharindex].upper() if transition[j].isupper() else alphaList[
+                    ciphercharindex].lower()
+    else:
+            cipherText += transition[j] 
+    
+    return cipherText
+    
+    
         
 
 def encryp(L:list, key):
@@ -64,13 +81,12 @@ elif len(sys.argv)>2: # for user input handling
 
     # call functions 
     if(mode == "-e"):
-        encryp(inputs,formattedKey)
+        output = encryp(inputs,formattedKey)
     elif(mode == "-d"):
-        decryp(inputs,formattedKey)
+        output = decryp(inputs,formattedKey)
     
     # print output
-    for x in output:
-        print(x)
+    print(output)
 else: # invalid system
     print("INVALID CALL")
     print("python3 " + sys.argv[0] + "-e KEY")
