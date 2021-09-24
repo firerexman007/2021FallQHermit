@@ -47,9 +47,7 @@ def decryp(inputs, formattedKey): # does decryptions
     transition= change(inputs, formattedKey) # change to key
     for w in range(len(inputs)): # loop through inputs
         word = inputs[w] # each input is word
-        print(word)
         currentTransition=transition[w] # each transition is currentTransition
-        print(currentTransition)
         cipherText =""
         for j in range(len(word)): # loop through letters in word and decryp
             if word[j].isalpha():
