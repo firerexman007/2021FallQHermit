@@ -24,6 +24,7 @@ alphaList = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 ########### functions
 def decryp(L:list, formattedKey):
     count2 = 0
+    alphaKey = ""
     for word in inputs:
         temp = [] 
         for char in word:
