@@ -1,19 +1,27 @@
-# Matthew T  9/23/2021
-# This code gets input from user in multiple ways 
-#
-
+################################################################
+#Group: Hermit sub-team B
+#Names: Matthew Tucker, Siva, Colby 
+#Desc: to encode or decode strings and output it
+#Date: 9-24-2021
+################################################################
+#Division of labor:
+#Matthew: Input system and logic
+#Siva: 
+#Colby: 
+#Each member adds to Program 2 Info.txt about there part(how it works)
 
 
 #imports 
 import sys
 
-#global 
-inputs = []
-output = [] 
+########### global Variables 
+inputs = [] # all input list
+output = [] # all output list 
+# two alpabet for lower and upper case 
 alp1 = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
 alp2 = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
 
-#functions
+########### functions
 def decryp(L:list, key):
     for word in inputs:
         for char in word:
@@ -23,22 +31,22 @@ def decryp(L:list, key):
 def encryp(L:list, key):
     pass 
 
-#code
+###########Start of Program
 if len(sys.argv)>3: # for fill handling
     pass
-elif len(sys.argv)>2: # for user input 
+elif len(sys.argv)>2: # for user input handling
     
-    #get system
-    Etype = sys.argv[1]
-    Key = sys.argv[2]
+    #get system variables 
+    Etype = sys.argv[1] # this is the type
+    Key = sys.argv[2] # this is the key
     
-    #get user input 
-    for line in sys.stdin:
+    #get user input (LOOP TILL Ctrl+D)
+    for line in sys.stdin: 
         inputs.append(line)
     
-    print("^D") #ctrl+D
+    print("^D") #ctrl+D print out 
 
-    # call functions
+    # call functions 
     if(Etype == "-e"):
         encryp(inputs,Key)
     elif(Etype == "-d"):
