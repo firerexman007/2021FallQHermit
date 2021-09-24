@@ -45,13 +45,14 @@ def decryp(inputs, formattedKey):
     cipherText =""
     change(inputs, formattedKey)
     for j in range(len(transition)):
-    if currentletter.isalpha():
-        ciphercharindex = (26 + (
-                        alphaList.index(transition[j].upper()) - alphaList.index(alphaKey[j].upper()))) % 26
-                cipherText += alphaList[ciphercharindex].upper() if transition[j].isupper() else alphaList[
-                    ciphercharindex].lower()
-    else:
-            cipherText += transition[j] 
+        currentletter = transition[j]
+        if currentletter.isalpha():
+            ciphercharindex = (26 + (
+                            alphaList.index(transition[j].upper()) - alphaList.index(alphaKey[j].upper()))) % 26
+                    cipherText += alphaList[ciphercharindex].upper() if transition[j].isupper() else alphaList[
+                        ciphercharindex].lower()
+        else:
+                cipherText += transition[j] 
     
     return cipherText
     
