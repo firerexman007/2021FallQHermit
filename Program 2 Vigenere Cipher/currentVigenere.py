@@ -5,9 +5,10 @@
 #Date: 9-24-2021
 ################################################################
 #Division of labor:
-#Matthew: Input system and logic
-#Siva: 
-#Colby: 
+#Matthew: Input/output system
+#Siva: Decryption and Encryption
+#Colby: Logic/orginization 
+# All members worked together and help when others strugled
 #Each member adds to Program 2 Info.txt about there part(how it works)
 
 
@@ -42,7 +43,7 @@ def change(inputs, formattedKey): # This function changes to what key is
     return returnL # Returns list of each input 
 
 def decryp(inputs, formattedKey): # does decryptions 
-    empty = [] # output list for this group
+    doutput = [] # output list for this group
     word = "" 
     transition= change(inputs, formattedKey) # change to key
     for w in range(len(inputs)): # loop through inputs
@@ -56,14 +57,14 @@ def decryp(inputs, formattedKey): # does decryptions
                 cipherText += alphaList[ciphercharindex].upper() if word[j].isupper() else alphaList[ciphercharindex].lower()
             else:
                 cipherText += word[j] 
-        empty.append(cipherText)
-    return empty
+        doutput.append(cipherText)
+    return doutput
     
     
         
 
 def encryp(L:list, key):
-    empty = [] # output list for this group
+    eoutput = [] # output list for this group
     word = "" 
     transition= change(inputs, formattedKey) # change to key
     for w in range(len(inputs)): # loop through inputs
@@ -72,13 +73,12 @@ def encryp(L:list, key):
         cipherText =""
         for j in range(len(word)): # loop through letters in word and decryp
             if word[j].isalpha():
-                #CURRENT ERROR IS HERE FIX PLEASE 
                 ciphercharindex = (alphaList.index(word[j].upper()) + alphaList.index(currentTransition[j].upper())) % 26
                 cipherText += alphaList[ciphercharindex].upper() if word[j].isupper() else alphaList[ciphercharindex].lower()
             else:
                 cipherText += word[j] 
-        empty.append(cipherText)
-    return empty 
+        eoutput.append(cipherText)
+    return eoutput 
 
 ###########Start of Program
 
