@@ -49,6 +49,6 @@ ftp.quit()
 
 # display the folder contents
 for f in files:
-	print(f) 
+    print(f[0:10]) 
 
 #Decode and print 
