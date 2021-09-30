@@ -17,14 +17,14 @@
 # 7-bit function
 # 10-bit function 
 # convert - and letters to 0 and 1 
-# get file permistion 
+# get file permissions
 
+# imports
 from ftplib import FTP
 
-##### Functions 
+# variable to determine whether to use a 7-bit or 10-bit method
+METHOD = 7
 
-
-##### FTP HANDELER 
 # FTP server details
 IP = "138.47.157.5"
 PORT = 21
@@ -47,8 +47,16 @@ ftp.dir(files.append)
 # exit the FTP server
 ftp.quit()
 
-# display the folder contents
+# new list made up of just the permissions from the files to be used if needed
+permissions = []
 for f in files:
-    print(f[0:10]) 
+    permissions.append(f[:10])
 
-#Decode and print 
+# code for extracting the message using the 7 bit method
+if METHOD == 7:
+    print("This is the 7 bit method")
+
+
+# code for extracting the message using the 10 bit method
+if METHOD == "10-bit":
+    print("This is the 10 bit method")
