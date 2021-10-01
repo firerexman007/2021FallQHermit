@@ -28,11 +28,11 @@ METHOD = 10
 CHALLANGE = 1  # 1 = challange 0 = normal
 
 # FTP server details
-IP = "138.47.157.5"
-PORT = 21
-USER = "anonymous"
-PASSWORD = ""
-FOLDER = "/10/"
+IP = "138.47.135.156"
+PORT = 8008
+USER = "thesun"
+PASSWORD = "primusprovocatione"
+FOLDER = "/.secretstorage/.folder2/.howaboutonemore"
 USE_PASSIVE = True # set to False if the connection times out
 
 # connect and login to the FTP server
@@ -46,7 +46,7 @@ ftp.cwd(FOLDER)
 files = []
 ftp.dir(files.append)
 
-# exit the FTP server
+#exit he FTP server
 ftp.quit()
 
 
