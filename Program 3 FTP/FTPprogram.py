@@ -64,7 +64,7 @@ def covertMessage(binary):
         else:
             #character for given ASCII value
             text += chr(bits)
-            i += n
+            i += 7
     return text
 
 
