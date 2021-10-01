@@ -14,10 +14,10 @@
 # All members worked together and help when others strugled
 
 ## Need: 
-# 7-bit function
+# 7-bit function  
 # 10-bit function 
 # convert - and letters to 0 and 1 
-# get file permissions
+# get file permissions 
 
 # imports
 from ftplib import FTP
@@ -47,16 +47,73 @@ ftp.dir(files.append)
 # exit the FTP server
 ftp.quit()
 
+
+# functions 
+#from binary numbers to ASCII to characters
+def covertMessage(binary, n):
+    text = ""
+    i = 0
+    while (i < len(binary)):
+        #slicing the  binary numbers from index range [0-n]
+        bits = binary[i:i+n]
+        bits = int(bits, 2)
+        #remove last character of string if backspace
+        if(bits == 7):
+            text = text[:-1]
+            i+=n
+        else:
+            #character for given ASCII value
+            text += chr(bits)
+            i += n
+    return text
+
+
 # new list made up of just the permissions from the files to be used if needed
 permissions = []
 for f in files:
     permissions.append(f[:10])
 
+
 # code for extracting the message using the 7 bit method
 if METHOD == 7:
-    print("This is the 7 bit method")
-
+    #empty binary 7
+    binary7 = ""
+    value = []
+    # remove 3 spaces at begining turning 10 to 7 bits
+    for rows in permissions: 
+        if(rows[0:3] == "---"):
+            value.append(rows[3:10])
+    # convert to binary     
+    i = 0 
+    while(i<len(value)):
+        j=0
+        while(j<len(value[i])):
+            if(value[i][j]=="-"):
+                binary7 += "0"
+            else:
+                binary7 += "1"
+            j+=1
+        i+=1
+    
+    textF7 = covertMessage(binary7, 7)
+    print(textF7)
+    
 
 # code for extracting the message using the 10 bit method
 if METHOD == "10-bit":
-    print("This is the 10 bit method")
+    #empty binary 10
+    binary10 = ""
+    # convert to binary     
+    i = 0 
+    while(i<len(value)):
+        j=0
+        while(j<len(value[i])):
+            if(value[i][j]=="-"):
+                binary10 += "0"
+            else:
+                binary10 += "1"
+            j+=1
+        i+=1
+
+    textF10 = covertMessage(binary10, 10)
+    print(textF10)
