@@ -50,12 +50,12 @@ ftp.quit()
 
 # functions 
 #from binary numbers to ASCII to characters
-def covertMessage(binary, n):
+def covertMessage(binary):
     text = ""
     i = 0
     while (i < len(binary)):
-        #slicing the  binary numbers from index range [0-n]
-        bits = binary[i:i+n]
+        #slices binary from 0 to 7
+        bits = binary[i:i+7]
         bits = int(bits, 2)
         #remove last character of string if backspace
         if(bits == 7):
@@ -95,7 +95,7 @@ if METHOD == 7:
             j+=1
         i+=1
     
-    textF7 = covertMessage(binary7, 7)
+    textF7 = covertMessage(binary7)
     print(textF7)
     
 
@@ -115,5 +115,5 @@ if METHOD == "10-bit":
             j+=1
         i+=1
 
-    textF10 = covertMessage(binary10, 10)
+    textF10 = covertMessage(binary10)
     print(textF10)
