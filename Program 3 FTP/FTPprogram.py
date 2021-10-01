@@ -23,14 +23,14 @@
 from ftplib import FTP
 
 # variable to determine whether to use a 7-bit or 10-bit method
-METHOD = 7
+METHOD = 10
 
 # FTP server details
 IP = "138.47.157.5"
 PORT = 21
 USER = "anonymous"
 PASSWORD = ""
-FOLDER = "/7/"
+FOLDER = "/10/"
 USE_PASSIVE = True # set to False if the connection times out
 
 # connect and login to the FTP server
@@ -50,12 +50,12 @@ ftp.quit()
 
 # functions 
 #from binary numbers to ASCII to characters
-def covertMessage(binary):
+def covertMessage(binary, n):
     text = ""
     i = 0
     while (i < len(binary)):
         #slices binary from 0 to 7
-        bits = binary[i:i+7]
+        bits = binary[i:i+n]
         bits = int(bits, 2)
         #remove last character of string if backspace
         if(bits == 7):
@@ -64,7 +64,7 @@ def covertMessage(binary):
         else:
             #character for given ASCII value
             text += chr(bits)
-            i += 7
+            i += n
     return text
 
 
@@ -95,16 +95,18 @@ if METHOD == 7:
             j+=1
         i+=1
     
-    textF7 = covertMessage(binary7)
+    textF7 = covertMessage(binary7, 7)
     print(textF7)
     
 
 # code for extracting the message using the 10 bit method
-if METHOD == "10-bit":
+if METHOD == 10:
     #empty binary 10
     binary10 = ""
+    value = permissions
     # convert to binary     
     i = 0 
+    
     while(i<len(value)):
         j=0
         while(j<len(value[i])):
@@ -115,5 +117,5 @@ if METHOD == "10-bit":
             j+=1
         i+=1
 
-    textF10 = covertMessage(binary10)
+    textF10 = covertMessage(binary10, 10)
     print(textF10)
