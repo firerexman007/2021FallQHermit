@@ -21,9 +21,11 @@
 
 # imports
 from ftplib import FTP
+from datetime import datetime
 
 # variable to determine whether to use a 7-bit or 10-bit method
 METHOD = 10
+CHALLANGE = 1  # 1 = challange 0 = normal
 
 # FTP server details
 IP = "138.47.157.5"
@@ -121,3 +123,9 @@ if METHOD == 10:
 
     textF10 = covertMessage(binary10)
     print(textF10)
+
+# get, modify, and print current date and time 
+if(CHALLANGE == 1):
+    now = datetime.now()
+    dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
+    print("Date and time =" + dt_string)
