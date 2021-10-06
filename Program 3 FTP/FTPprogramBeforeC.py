@@ -5,12 +5,12 @@
 #Date: 9-29-2021
 ################################################################
 #Division of labor:
-#Matthew: 
-#Siva: 
-#Colby: 
-#Cori:
-#Varat:
-#Thien: 
+#Matthew: trobleshoot and combine into one, tested, added time for challange
+#Siva: trobleshoot
+#Colby:7-bit and chage to binary 
+#Cori:set up and permistions gathering 
+#Varat: Filter noise
+#Thien: Trobleshoot and fix 7/10-bit 
 # All members worked together and help when others strugled
 
 ## Need: 
@@ -25,7 +25,7 @@ from datetime import datetime
 
 # variable to determine whether to use a 7-bit or 10-bit method
 METHOD = 10
-CHALLANGE = 1  # 1 = challange 0 = normal
+CHALLANGE = 0  # 1 = challange 0 = normal
 
 # FTP server details
 IP = "138.47.157.5"
