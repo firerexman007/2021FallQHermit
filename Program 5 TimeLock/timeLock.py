@@ -25,6 +25,7 @@ MANUAL_DATETIME =""
 
 
 #functions 
+    # convert YYYY, MM, DD, HH, mm, S to seconds 
 def getTime(Y,M,D,H,m,S):
     seconds = 0
     M += (Y*12)
@@ -35,19 +36,25 @@ def getTime(Y,M,D,H,m,S):
     seconds = s
     return seconds 
     
-
+    # convert everything to final string 
 def getCode(time1):
+    # if not manual datetime then get current date time 
     if(MANUAL_DATETIME == ""):
         currentTime = ""
     else:
         currentTime = MANUAL_DATETIME
+    # print out for test 
     print("Current(UTC) " +sys.argv[1] +" "+ sys.argv[2] +" "+ sys.argv[3] +" "+ sys.argv[4] +" "+ sys.argv[5] +" "+ sys.argv[6] # test code 
-    print("Epoch (UTC )" + MANUAL_DATETIME) # test code  
+    print("Epoch (UTC )" + MANUAL_DATETIME) # test code 
     
+    # get time diff
     time2 = getTime(currentTime)
     timediff = time1-(time2%60)
+    #print test 
     print("Seconds: " + time1) # test code 
     print("Seconds: " + time2) # test code 
+    
+    # get md5 and print test 
     string = md5(timediff)
     print("MD5 #1: " + string) # test code 
     string2 = md5(string)
