@@ -22,7 +22,8 @@ import pytz
 
 # sets 
 INTERVAL = 60
-MANUAL_DATETIME =""
+MANUAL_DATETIME.datetime(2021, 2, 23,0,0)
+#MANUAL_DATETIME = ""
 
 
 #functions 
@@ -44,6 +45,12 @@ def getCode(time1):
         currentTime = "" # get time stamp from computer 
     else:
         currentTime = MANUAL_DATETIME
+        year = currentTime.year
+        month = currentTime.month
+        day = currentTime.day
+        hours = currentTime.hours
+        minets = currentTime.minets
+        seconds = currentTime.seconds
     # print out for test 
     print("Current(UTC) " +sys.argv[1] +" "+ sys.argv[2] +" "+ sys.argv[3] +" "+ sys.argv[4] +" "+ sys.argv[5] +" "+ sys.argv[6] # test code 
     print("Epoch (UTC )" + MANUAL_DATETIME) # test code 
