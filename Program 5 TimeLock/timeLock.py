@@ -15,7 +15,8 @@
 #imports 
 import sys
 import re
-from datetime import datetime 
+from datetime import datetime, date 
+import calendar 
 from hashlib import md5
 import pytz
 
@@ -40,7 +41,7 @@ def getTime(Y,M,D,H,m,S):
 def getCode(time1):
     # if not manual datetime then get current date time 
     if(MANUAL_DATETIME == ""):
-        currentTime = ""
+        currentTime = "" # get time stamp from computer 
     else:
         currentTime = MANUAL_DATETIME
     # print out for test 
@@ -69,6 +70,9 @@ def getCode(time1):
 ###########Start of Program
 
 if len(sys.argv)>=6: # for user input handling 
+    # convert to UTC TIME 
+    
+
     # change input time to seconds 
     time1 = getTime(sys.argv[1],sys.argv[2],sys.argv[3],sys.argv[4],sys.argv[5],sys.argv[6])
     print(time1) # test seconds
