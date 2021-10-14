@@ -27,8 +27,8 @@ debugOneAVG = 0
 debugZeroAVG = 0
 # set the server's IP address and port
 ip = "138.47.99.64"
-#ip = "localhost"
-port = 12000
+ip = "localhost"
+port = 1337
 
 # create the socket
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
