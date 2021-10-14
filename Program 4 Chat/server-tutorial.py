@@ -36,8 +36,8 @@ for i in covert:
 	covert_bin += ''.join(format(ord(i), '08b'))
 
 # send the message, one letter at a time with delays for the covert message
+n = 0
 for i in msg:
-	n = 0
 	c.send(i.encode())
 	if covert_bin[n] == "0":
 		sleep(ZERO)

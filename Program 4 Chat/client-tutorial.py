@@ -26,7 +26,7 @@ debugZeroCounter = 0
 debugOneAVG = 0
 debugZeroAVG = 0
 # set the server's IP address and port
-ip = "138.47.99.64"
+#ip = "138.47.99.64"
 ip = "localhost"
 port = 1337
 
