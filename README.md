@@ -25,16 +25,16 @@
 ### Program 3: FTP : Due:10/1/2021
 ### All members
 ### Program 4: Chat : Due:10/15/2021
-###Cori
-###Thien
+### Cori
+### Thien
 #
 ### Program 5: TimeLock : Due:10/29/2021
-###Matthew
-###???
+### Matthew
+### ???
 #
 ### Program 6: XOR : Due:10/29/2021
-###???
-###???
+### ???
+### ???
 #
 ### Program 7: Steganography : Due:10/29/2021
 
