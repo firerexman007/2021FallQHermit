@@ -6,8 +6,8 @@
 ################################################################
 #Division of labor:
 #Matthew: Input/output system
-#ADD YOUR NAME 
-# All members worked together and help when others strugled
+#Thien: Troubleshooting seconds elapsed
+# All members worked together and help when others struggled
 
 
 ## HAVE NOT TESTED YET JUST DID QUICKLY IN CLASS
@@ -27,61 +27,38 @@ INTERVAL = 60
 MANUAL_DATETIME = "2013 05 06 07 43 25"
 #MANUAL_DATETIME = ""
 
-#functions 
-    # convert YYYY, MM, DD, HH, mm, S to seconds 
-def getTime(Y,M,D,H,m,S):
-    seconds = 0
-    seconds += (Y*31556926)
-    seconds += (M*2629743)
-    seconds += (D*86400)
-    seconds += (H*3600)
-    seconds += (m*60)
-    seconds += S
-    print(seconds)
-    return seconds 
-     
-    
-
-
-
 ###########Start of Program
 if((not(sys.stdin.isatty()))): # if there is input from start of run
     # get input from .txt or echo
-    year = sys.stdin.readline().rstrip()
+    epoch = sys.stdin.readline().rstrip()
+    epoch = datetime.strptime(epoch, "%Y %m %d %H %M %S")
+    print(epoch)
     #print("{}".format(year)) # test print
     
     # get current time 
     if(MANUAL_DATETIME == ""):
         now = datetime.utcnow()
-        currentTime = now.strftime("%Y %m %d %H %M %S") # get time stamp from computer 
+        currentTime = now.strftime("%Y %m %d %H %M %S") # get time stamp from computer
     else:
         currentTime = MANUAL_DATETIME
+        currentTime = datetime.strptime(MANUAL_DATETIME, "%Y %m %d %H %M %S")
     #print(currentTime) # print test 
     
-    # break up the current time and given time 
-    cT = currentTime.split( )
-    cE = year.split( )
+    #get total elapsed seconds
+    cT = currentTime.timestamp()
+    cE = epoch.timestamp()
 
-    # convert to seconds 
-    print(cT)
-    print(cE)
-    timeN = getTime(int(cT[0]),int(cT[1]),int(cT[2]),int(cT[3]),int(cT[4]),int(cT[5]))
-    timeE = getTime(int(cE[0]),int(cE[1]),int(cE[2]),int(cE[3]),int(cE[4]),int(cE[5]))
-    
-    print(timeN) # test seconds 
-    print(timeE)
-    print("Time diff " + str((timeE%INTERVAL)))
-
-    # get time diff with only chaning every interval sec
-    timeD = int(timeN-timeE)       ##### CHECK THIS                  ## SOMTHING WRONG HERE
-    if(not(int(cE[5])%INTERVAL == 0)):
-        timeF =str(timeD-int(cE[5])%INTERVAL)
-    
-    print(timeF)
+    # get time diff
+    timeD = int(cT - cE)       ##### CHECK THIS                  ## FIXED
+    print(timeD)
+    #subtract by INTERTVAL
+    if (INTERVAL != 0):
+        timeD -= timeD % INTERVAL
+    timeD = str(timeD)
       
     #timeD = str(421137839)  # HARD TEST CODE 
     # convert to encoded md5
-    string = (hashlib.md5((timeF).encode('utf-8')).hexdigest())      ## SOMTHING WRONG HERE
+    string = (hashlib.md5((timeD).encode('utf-8')).hexdigest())      ## FIXED
     print("MD5 #1: " + string) # test code 
     string2 = (hashlib.md5((string).encode('utf-8')).hexdigest())
     print("MD5 #2: " + string2) # test code 
