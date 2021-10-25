@@ -1,16 +1,15 @@
 ################################################################
 #Group: Hermit 
-#Names: Matthew Tucker, 
-#Desc: 
+#Names: Matthew Tucker,Thien 
+#Desc: This code takes a time stamp and current time to make a time key based on the amount of seconds the original time stamp is from current time
 #Date: 10/11/2021
 ################################################################
 #Division of labor:
-#Matthew: Input/output system
+#Matthew: Input/output system, elapsed time, structure, MD5 
 #Thien: Troubleshooting seconds elapsed
 # All members worked together and help when others struggled
 
 
-## HAVE NOT TESTED YET JUST DID QUICKLY IN CLASS
 
 #imports 
 import sys
@@ -24,15 +23,15 @@ import hashlib
 # sets 
 INTERVAL = 60
 #current time
-MANUAL_DATETIME = "2013 05 06 07 43 25"
-#MANUAL_DATETIME = ""
+#MANUAL_DATETIME = "2017 03 23 18 02 06" # example 
+MANUAL_DATETIME = ""
 
 ###########Start of Program
 if((not(sys.stdin.isatty()))): # if there is input from start of run
     # get input from .txt or echo
     epoch = sys.stdin.readline().rstrip()
     epoch = datetime.strptime(epoch, "%Y %m %d %H %M %S")
-    print(epoch)
+    #print(epoch)
     #print("{}".format(year)) # test print
     
     # get current time 
@@ -50,7 +49,7 @@ if((not(sys.stdin.isatty()))): # if there is input from start of run
 
     # get time diff
     timeD = int(cT - cE)       ##### CHECK THIS                  ## FIXED
-    print(timeD)
+    #print(timeD)
     #subtract by INTERTVAL
     if (INTERVAL != 0):
         timeD -= timeD % INTERVAL
@@ -59,9 +58,9 @@ if((not(sys.stdin.isatty()))): # if there is input from start of run
     #timeD = str(421137839)  # HARD TEST CODE 
     # convert to encoded md5
     string = (hashlib.md5((timeD).encode('utf-8')).hexdigest())      ## FIXED
-    print("MD5 #1: " + string) # test code 
+    #print("MD5 #1: " + string) # test code 
     string2 = (hashlib.md5((string).encode('utf-8')).hexdigest())
-    print("MD5 #2: " + string2) # test code 
+    #print("MD5 #2: " + string2) # test code 
     
     # get output
     only_alpha ="" # For all letters 
