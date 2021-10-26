@@ -30,8 +30,8 @@ if(len(sys.argv)>1):
         exit(0)
 
 ## main mode (get/org inputs) 
-Pwrap =""
-if len(sys.argv)>4: # see if have min inputs needed  
+if len(sys.argv)>4: # see if have min inputs needed
+    Pwrap ="" # is here for future needs   
     if(sys.argv[1] == "-s" or sys.argv[1] == "-r"): # if there
         Pmode = sys.argv[1][1:]
     else: # else error control 
