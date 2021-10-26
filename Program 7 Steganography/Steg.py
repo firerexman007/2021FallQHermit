@@ -15,22 +15,33 @@ import re
 sentinel = bytearray(b'\x00\xff\x00\x00\xff\x00')
 
 def bitRetrieve(Pwrap, sentinel, PoffS, Pinte):
+    #read file as byte array
     wrapFile = open(Pwrap, "rb")
     wrapBytes = bytearray(wrapFile.read())
     wrapFile.close()
+    #make empty bytearray to put hidden bytes in
     hiddenBytes = bytearray()
+
     while PoffS < len(wrapBytes):
+        #hidden byte to be constructed
         b = 0
         for i in range(8):
+            #get least significan bit of current byte
             b |= (wrapBytes[PoffS] & 0o0000001)
             if i < 7:
+                # bitshift byte by one and prevent overflow
                 b = (b << 1) & (2 ** 8 - 1)
+                #move to next byte
                 PoffS += Pinte
+        #turn into an actual byte
         b = b.to_bytes(1, 'big')
+        #add to byte array
         hiddenBytes += b
+        #if sentinel is detected, stop
         if hiddenBytes[len(hiddenBytes) - len(sentinel):] == sentinel:
             break
         PoffS += Pinte
+    #output
     sys.stdout.buffer.write(hiddenBytes)
 
 
@@ -67,6 +78,7 @@ if len(sys.argv)>4: # see if have min inputs needed
         if(PoffS ==""): # if there but no val
             PoffS = "0"
         else:
+            #turn input into an int
             PoffS = int(PoffS)
     else: # else error control
         print("Please use -o<val> set offset to <val> (defualt is 0)")
@@ -76,6 +88,7 @@ if len(sys.argv)>4: # see if have min inputs needed
         if(Pinte == ""): # if there but no val
            Pinte = "1"
         else:
+            # turn input into an int
             Pinte = int(Pinte)
     elif(sys.argv[4][0:2] == "-w"): # if not there 1 , if there 2
            Pwrap = sys.argv[4][2:]
