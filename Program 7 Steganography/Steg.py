@@ -12,6 +12,26 @@
 #import 
 import sys
 import re
+sentinel = bytearray(b'\x00\xff\x00\x00\xff\x00')
+
+def bitRetrieve(Pwrap, sentinel, PoffS, Pinte):
+    wrapFile = open(Pwrap, "rb")
+    wrapBytes = bytearray(wrapFile.read())
+    wrapFile.close()
+    hiddenBytes = bytearray()
+    while PoffS < len(wrapBytes):
+        b = 0
+        for i in range(8):
+            b |= (wrapBytes[PoffS] & 0o0000001)
+            if i < 7:
+                b = (b << 1) & (2 ** 8 - 1)
+                PoffS += Pinte
+        b = b.to_bytes(1, 'big')
+        hiddenBytes += b
+        if hiddenBytes[len(hiddenBytes) - len(sentinel):] == sentinel:
+            break
+        PoffS += Pinte
+    sys.stdout.buffer.write(hiddenBytes)
 
 
 ###### Start of Code 
@@ -46,6 +66,8 @@ if len(sys.argv)>4: # see if have min inputs needed
         PoffS = sys.argv[3][2:]
         if(PoffS ==""): # if there but no val
             PoffS = "0"
+        else:
+            PoffS = int(PoffS)
     else: # else error control
         print("Please use -o<val> set offset to <val> (defualt is 0)")
         exit(0)
@@ -53,6 +75,8 @@ if len(sys.argv)>4: # see if have min inputs needed
         Pinte = sys.argv[4][2:] 
         if(Pinte == ""): # if there but no val
            Pinte = "1"
+        else:
+            Pinte = int(Pinte)
     elif(sys.argv[4][0:2] == "-w"): # if not there 1 , if there 2
            Pwrap = sys.argv[4][2:]
            Pinte ="1"
@@ -97,5 +121,17 @@ else: # invalid system not enough inputs
     print("Python3 "+ sys.argv[0] + " h")
     exit(0)
 
-#The rest of the code with inputs 
-
+#The rest of the code with inputs
+#all combinations of modes
+if (sys.argv[1] == "-s" and sys.argv[2] == "-b"):
+    #put bit storage here
+    pass
+if (sys.argv[1] == "-r" and sys.argv[2] == "-b"):
+    print("ruh")
+    bitRetrieve(Pwrap, sentinel, PoffS, Pinte)
+if (sys.argv[1] == "-s" and sys.argv[2] == "-B"):
+    #put byte storage here
+    pass
+if (sys.argv[1] == "-r" and sys.argv[2] == "-B"):
+    #put byte retrieval here
+    pass
