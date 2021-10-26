@@ -44,7 +44,28 @@ def bitRetrieve(Pwrap, sentinel, PoffS, Pinte):
     #output
     sys.stdout.buffer.write(hiddenBytes)
 
-
+def byteStorage(Pwrap, Phidd, sentinel, Poffs, Pinte):
+    # read files as byte arrays
+    wrapFile = open(Pwrap, "rb")
+    wrapBytes = bytearray(wrapFile.read())
+    wrapFile.close()
+    hiddenFile = open(Phidd, "rb")
+    hiddenBytes = bytearray(hiddenFile.read())
+    hiddenFile.close()
+    i = 0
+    n = 0
+    # store hidden bytes in wrap file
+    while(i < len(hiddenBytes)):
+        wrapBytes[Poffs] = hiddenBytes[Pinte]
+        Poffs += Pinte
+        i += 1
+    # add sentinel bytes
+    while n < len(sentinel):
+        wrapBytes[Poffs] = sentinel[n]
+        Poffs += Pinte
+        n += 1
+    # output
+    sys.stdout.buffer.write(wrapBytes)
 ###### Start of Code 
 ## help mode
 if(len(sys.argv)>1):
@@ -144,7 +165,8 @@ if (sys.argv[1] == "-r" and sys.argv[2] == "-b"):
     bitRetrieve(Pwrap, sentinel, PoffS, Pinte)
 if (sys.argv[1] == "-s" and sys.argv[2] == "-B"):
     #put byte storage here
-    pass
+    print("bruh")
+    byteStorage(Pwrap, Phidd, sentinel, PoffS, Pinte)
 if (sys.argv[1] == "-r" and sys.argv[2] == "-B"):
     #put byte retrieval here
     pass
