@@ -14,6 +14,7 @@ import sys
 import re
 sentinel = bytearray(b'\x00\xff\x00\x00\xff\x00')
 
+## functions 
 def bitRetrieve(Pwrap, sentinel, PoffS, Pinte):
     #read file as byte array
     wrapFile = open(Pwrap, "rb")
@@ -66,6 +67,7 @@ def byteStorage(Pwrap, Phidd, sentinel, Poffs, Pinte):
         n += 1
     # output
     sys.stdout.buffer.write(wrapBytes)
+
 ###### Start of Code 
 ## help mode
 if(len(sys.argv)>1):
@@ -98,9 +100,6 @@ if len(sys.argv)>4: # see if have min inputs needed
         PoffS = sys.argv[3][2:]
         if(PoffS ==""): # if there but no val
             PoffS = "0"
-        else:
-            #turn input into an int
-            PoffS = int(PoffS)
     else: # else error control
         print("Please use -o<val> set offset to <val> (defualt is 0)")
         exit(0)
@@ -108,9 +107,6 @@ if len(sys.argv)>4: # see if have min inputs needed
         Pinte = sys.argv[4][2:] 
         if(Pinte == ""): # if there but no val
            Pinte = "1"
-        else:
-            # turn input into an int
-            Pinte = int(Pinte)
     elif(sys.argv[4][0:2] == "-w"): # if not there 1 , if there 2
            Pwrap = sys.argv[4][2:]
            Pinte ="1"
@@ -138,7 +134,10 @@ if len(sys.argv)>4: # see if have min inputs needed
             else: # else if no more inputs 
                 Phidd = ""   
     else:
-         Phidd =""      
+         Phidd =""   
+    #change strings into int as needed 
+    PoffS = int(PoffS)
+    Pinte = int(Pinte)
     #test input system
     """
     print(f"Mode = {Pmode}")
