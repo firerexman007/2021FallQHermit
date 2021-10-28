@@ -31,9 +31,11 @@
 #
 ### Program 5: TimeLock : Due:10/29/2021
 ### Matthew
+### Thien
 #
 ### Program 6: XOR : Due:10/29/2021
 ### Siva
+### Varat
 #
 ### Program 7: Steganography : Due:10/29/2021
 
