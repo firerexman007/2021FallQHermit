@@ -46,8 +46,39 @@ def bitRetrieve(Pwrap, sentinel, PoffS, Pinte):
         PoffS += Pinte
     #output
     sys.stdout.buffer.write(hiddenBytes)
+
+#function for bit storage
+def bitStorage(Pwrap, Phidd, sentinel, Poffs, Pinte):
+    # read files as byte arrays
+    wrapFile = open(Pwrap, "rb")
+    wrapBytes = bytearray(wrapFile.read())
+    wrapFile.close()
+    hiddenFile = open(Phidd, "rb")
+    hiddenBytes = bytearray(hiddenFile.read())
+    hiddenFile.close()
+    i = 0
+    n = 0
+    j = 0
+    #store in wrap files
+    while (i < len(hiddenBytes)):
+        for j in range(8):
+            wrapBytes[Poffs] &= 0b11111110
+            wrapBytes[Poffs] |= ((hiddenBytes[Pinte] & 0b10000000) >> 7)
+            hiddenBytes[Pinte] = (hiddenBytes[Pinte] << shift) & (2 ** len(hiddenBytes) - 1)
+            Poffs += Pinte
+        i += 1
+    # add sentinel bytes
+    while (n < len(sentinel)):
+        for j in range(8):
+            wrapBytes[Poffs] &= 0b11111110
+            wrapBytes[Poffs] |= ((sentinel[n] & 0b10000000) >> 7)
+            sentinel[n] = (sentinel[n] << 1) & (2 ** 8 - 1)
+            Poffs += Pinte
+        i += 1
+    #output
+    sys.stdout.buffer.write(wrapBytes) 
     
- #function for byte retrieval
+#function for byte retrieval
 def byteRetrieve(Pwrap, sentinel, PoffS, Pinte):
     #read wrapper bytees
     wrapFile = open(Pwrap, "rb")
@@ -57,7 +88,7 @@ def byteRetrieve(Pwrap, sentinel, PoffS, Pinte):
     hiddenBytes = bytearray()
 
     #while loop for hidden byte
-    while PoffS < len(wrapBytes):
+    while(PoffS < len(wrapBytes)):
         b = wrapBytes[PoffS]
         #turn into an actual byte
         b = b.to_bytes(1, 'big')
@@ -87,7 +118,7 @@ def byteStorage(Pwrap, Phidd, sentinel, Poffs, Pinte):
         Poffs += Pinte
         i += 1
     # add sentinel bytes
-    while n < len(sentinel):
+    while(n < len(sentinel)):
         wrapBytes[Poffs] = sentinel[n]
         Poffs += Pinte
         n += 1
