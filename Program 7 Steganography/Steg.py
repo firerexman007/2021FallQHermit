@@ -1,12 +1,13 @@
 ################################################################
 #Group: Hermit 
-#Names: Matthew Tucker,Thien 
+#Names: Matthew Tucker,Thien, Colby
 #Desc: 
 #Date: 10/25/2021
 ################################################################
 #Division of labor:
 #Matthew: input/output system, help system
 #Thien: 
+#Colby: Byte retrieval
 # All members worked together and help when others struggled
 
 #import 
@@ -42,6 +43,30 @@ def bitRetrieve(Pwrap, sentinel, PoffS, Pinte):
         if hiddenBytes[len(hiddenBytes) - len(sentinel):] == sentinel:
             break
         PoffS += Pinte
+    #output
+    sys.stdout.buffer.write(hiddenBytes)
+    
+ #function for byte retrieval
+def byteRetrieve(Pwrap, sentinel, PoffS, Pinte):
+    #read wrapper bytees
+    wrapFile = open(Pwrap, "rb")
+    wrapBytes = bytearray(wrapFile.read())
+    wrapFile.close()
+    #empty byte array
+    hiddenBytes = bytearray()
+
+    #while loop for hidden byte
+    while PoffS < len(wrapBytes):
+        b = wrapBytes[PoffS]
+        #turn into an actual byte
+        b = b.to_bytes(1, 'big')
+        #add to byte array 
+        hiddenBytes += b
+        #if sentinel is detected, stop
+        if hiddenBytes[len(hiddenBytes) - len(sentinel):] == sentinel:
+            break
+        #offset += interval
+        PoffS += Pinte 
     #output
     sys.stdout.buffer.write(hiddenBytes)
 
