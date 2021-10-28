@@ -36,7 +36,8 @@
 ### Program 6: XOR : Due:10/29/2021
 ### Siva
 ### Varat
+### Colby
 #
 ### Program 7: Steganography : Due:10/29/2021
-
+### All members
 
