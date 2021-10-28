@@ -59,13 +59,12 @@ def bitStorage(Pwrap, Phidd, sentinel, Poffs, Pinte):
     hiddenFile.close()
     i = 0
     n = 0
-    j = 0
     #store in wrap files
     while (i < len(hiddenBytes)):
         for j in range(8):
             wrapBytes[Poffs] &= 0b11111110
             wrapBytes[Poffs] |= ((hiddenBytes[i] & 0b10000000) >> 7)
-            hiddenBytes[i] = (hiddenBytes[i] << shift) & (2 ** len(hiddenBytes) - 1)
+            hiddenBytes[i] = (hiddenBytes[i] << 1) & (2 ** 8 - 1)
             Poffs += Pinte
         i += 1
     # add sentinel bytes
@@ -75,7 +74,7 @@ def bitStorage(Pwrap, Phidd, sentinel, Poffs, Pinte):
             wrapBytes[Poffs] |= ((sentinel[n] & 0b10000000) >> 7)
             sentinel[n] = (sentinel[n] << 1) & (2 ** 8 - 1)
             Poffs += Pinte
-        i += 1
+        n += 1
     #output
     sys.stdout.buffer.write(wrapBytes) 
     
@@ -216,7 +215,7 @@ else: # invalid system not enough inputs
 #all combinations of modes
 if (sys.argv[1] == "-s" and sys.argv[2] == "-b"):
     #put bit storage here
-    pass
+    bitStorage(Pwrap, Phidd, sentinel, PoffS, Pinte)
 if (sys.argv[1] == "-r" and sys.argv[2] == "-b"):
     bitRetrieve(Pwrap, sentinel, PoffS, Pinte)
 if (sys.argv[1] == "-s" and sys.argv[2] == "-B"):
