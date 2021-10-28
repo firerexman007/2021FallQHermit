@@ -1,6 +1,6 @@
 ################################################################
 #Group: Hermit 
-#Names: Matthew Tucker,Thien, Colby
+#Names: Matthew Tucker,Thien, Colby, Varat
 #Desc: 
 #Date: 10/25/2021
 ################################################################
@@ -9,6 +9,7 @@
 #Thien: Bit retrieval, input tweaks, testing
 #Cori: byte storage
 #Colby: Byte retrieval
+#Varat: bit storage
 # All members worked together and help when others struggled
 
 #import 
@@ -63,8 +64,8 @@ def bitStorage(Pwrap, Phidd, sentinel, Poffs, Pinte):
     while (i < len(hiddenBytes)):
         for j in range(8):
             wrapBytes[Poffs] &= 0b11111110
-            wrapBytes[Poffs] |= ((hiddenBytes[Pinte] & 0b10000000) >> 7)
-            hiddenBytes[Pinte] = (hiddenBytes[Pinte] << shift) & (2 ** len(hiddenBytes) - 1)
+            wrapBytes[Poffs] |= ((hiddenBytes[i] & 0b10000000) >> 7)
+            hiddenBytes[i] = (hiddenBytes[i] << shift) & (2 ** len(hiddenBytes) - 1)
             Poffs += Pinte
         i += 1
     # add sentinel bytes
