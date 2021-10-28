@@ -6,7 +6,8 @@
 ################################################################
 #Division of labor:
 #Matthew: input/output system, help system
-#Thien: 
+#Thien: Bit retrieval, input tweaks, testing
+#Cori: byte storage
 #Colby: Byte retrieval
 # All members worked together and help when others struggled
 
@@ -185,12 +186,10 @@ if (sys.argv[1] == "-s" and sys.argv[2] == "-b"):
     #put bit storage here
     pass
 if (sys.argv[1] == "-r" and sys.argv[2] == "-b"):
-    print("ruh")
     bitRetrieve(Pwrap, sentinel, PoffS, Pinte)
 if (sys.argv[1] == "-s" and sys.argv[2] == "-B"):
     #put byte storage here
-    print("bruh")
     byteStorage(Pwrap, Phidd, sentinel, PoffS, Pinte)
 if (sys.argv[1] == "-r" and sys.argv[2] == "-B"):
     #put byte retrieval here
-    pass
+    byteRetrieve(Pwrap, sentinel, PoffS, Pinte)
