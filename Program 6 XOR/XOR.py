@@ -1,12 +1,13 @@
 ################################################################
 #Group: Hermit 
-#Names: Siva Karuturi, Varat Chaichamnarn
+#Names: Siva Karuturi, Varat Chaichamnarn, Colby Boyd
 #Desc: Take the contents of one file and encncrypt it with the contents of another file and store it in a file
 #Date: 10/27/2021
 ################################################################
 #Division of labor:
 #Siva: Handling all the code
 #Varat: Testing 
+#Colby: Testing and upload
 # All members worked together and help when others strugled
 
 #import stdin and stdout
