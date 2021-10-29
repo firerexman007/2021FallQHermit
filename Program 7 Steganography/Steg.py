@@ -6,7 +6,7 @@
 ################################################################
 #Division of labor:
 #Matthew: input/output system, help system
-#Thien: Bit retrieval, input tweaks, testing
+#Thien: Bit retrieval, testing
 #Cori: byte storage
 #Colby: Byte retrieval
 #Varat: bit storage
