@@ -23,9 +23,9 @@ import hashlib
 # sets 
 INTERVAL = 60
 #current time
-MANUAL_DATETIME = "2017 03 23 18 02 06" # example 
-#MANUAL_DATETIME = ""
-netcat host 54321
+#MANUAL_DATETIME = "2017 03 23 18 02 06" # example 
+MANUAL_DATETIME = ""
+netcat host 13847134178
 
 
 ###########Start of Program
