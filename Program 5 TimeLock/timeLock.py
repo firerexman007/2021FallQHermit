@@ -23,9 +23,12 @@ import hashlib
 # sets 
 INTERVAL = 60
 #current time
-#MANUAL_DATETIME = "2017 03 23 18 02 06" # example 
-MANUAL_DATETIME = ""
-netcat host 13847134178
+MANUAL_DATETIME = "2021 10 29 11 29 12" # example 
+#MANUAL_DATETIME = ""
+
+#for chal 5 conected to natcat with 
+    # nc IP PORT    (ip 138.47.134.178 port 54321)
+
 
 
 ###########Start of Program
