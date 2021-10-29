@@ -23,8 +23,10 @@ import hashlib
 # sets 
 INTERVAL = 60
 #current time
-#MANUAL_DATETIME = "2017 03 23 18 02 06" # example 
-MANUAL_DATETIME = ""
+MANUAL_DATETIME = "2017 03 23 18 02 06" # example 
+#MANUAL_DATETIME = ""
+netcat host 54321
+
 
 ###########Start of Program
 if((not(sys.stdin.isatty()))): # if there is input from start of run
@@ -65,19 +67,24 @@ if((not(sys.stdin.isatty()))): # if there is input from start of run
     # get output
     only_alpha ="" # For all letters 
     only_number = ""  # for all numbers 
+    all_things =""
     for char in string2: # go charater by charater
         # get the ACII num to determin what it is 
         if(ord(char) >= 65 and ord(char) <= 90):  # lower case 
             only_alpha += char
+            all_things += char
         elif(ord(char) >= 97 and ord(char) <= 122): # upper case 
             only_alpha += char
+            all_things += char
         elif(ord(char) >= 48 and ord(char) <= 57): # numbers 
             only_number += char
+            all_things += char
     key ="" # set up final key 
     # get first two alphabetical and last to numbers 
     key += only_alpha[0:2]
     key += only_number[-1]
     key += only_number[-2]
+    key += all_things[len(all_things)//2]
     print(key) # output key END OF CODE
 
 else: # else print error for in correct use 
