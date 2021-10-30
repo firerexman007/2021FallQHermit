@@ -11,7 +11,7 @@
 #
 ## All code done in the class will be stored here for easy transfer and save of code
 #
-## Sub-Teams(Chosen by Wheel of Names):
+## Sub-Teams:
 ### Program 1: Binary Decoder : Due:9/24/2021
 ### Varat
 ### Thien
