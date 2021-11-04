@@ -86,7 +86,7 @@ if((not(sys.stdin.isatty()))): # if there is input from start of run
     key += only_alpha[0:2]
     key += only_number[-1]
     key += only_number[-2]
-    key += all_things[len(all_things)//2]
+    #key += all_things[len(all_things)//2]
     print(key) # output key END OF CODE
 
 else: # else print error for in correct use 
