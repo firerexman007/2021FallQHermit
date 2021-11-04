@@ -2,7 +2,7 @@
 #Group: Hermit 
 #Names: Matthew Tucker,Thien 
 #Desc: This code takes a time stamp and current time to make a time key based on the amount of seconds the original time stamp is from current time
-#Date: 10/11/2021
+#Date: 10/11/2021  : Fixed Date: 11/4/2021
 ################################################################
 #Division of labor:
 #Matthew: Input/output system, elapsed time, structure, MD5 
@@ -41,7 +41,7 @@ if((not(sys.stdin.isatty()))): # if there is input from start of run
     
     # get current time 
     if(MANUAL_DATETIME == ""):
-        currentTime = datetime.utcnow()
+        currentTime = datetime.utcnow() # Get time of machine 
     else:
         currentTime = MANUAL_DATETIME
         currentTime = datetime.strptime(MANUAL_DATETIME, "%Y %m %d %H %M %S")
