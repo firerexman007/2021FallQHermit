@@ -23,8 +23,8 @@ import hashlib
 # sets 
 INTERVAL = 60
 #current time
-MANUAL_DATETIME = "2021 10 29 11 29 12" # example 
-#MANUAL_DATETIME = ""
+#MANUAL_DATETIME = "2021 10 29 11 29 12" # example 
+MANUAL_DATETIME = ""
 
 #for chal 5 conected to natcat with 
     # nc IP PORT    (ip 138.47.134.178 port 54321)
@@ -41,8 +41,7 @@ if((not(sys.stdin.isatty()))): # if there is input from start of run
     
     # get current time 
     if(MANUAL_DATETIME == ""):
-        now = datetime.utcnow()
-        currentTime = now.strftime("%Y %m %d %H %M %S") # get time stamp from computer
+        currentTime = datetime.utcnow()
     else:
         currentTime = MANUAL_DATETIME
         currentTime = datetime.strptime(MANUAL_DATETIME, "%Y %m %d %H %M %S")
