@@ -16,5 +16,5 @@ python3 Steg.py -r -B -o1 -i2048 -w > 12.jpg
 python3 Steg.py -r -B -o1 -i4096 -w > 13.jpg
 python3 Steg.py -r -B -o1 -i8192 -w > 14.jpg
 python3 Steg.py -r -B -o1 -i16384 -w > 15.jpg
-python3 Steg.py -r -B -o1 -i32768 -w > 15.jpg
+python3 Steg.py -r -B -o1 -i32768 -w > 16.jpg
 
