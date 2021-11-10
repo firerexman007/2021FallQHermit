@@ -1,0 +1,14 @@
+This document is how to connect to ftp sever 
+
+"ftp" //launch ftp in terminal
+"open <ip> <port>" //connect to server
+"<username>" //prompt for u
+"<password>" //prompt for p
+//setup stuff(just do it)
+"binary"
+"passive"
+"prompt"
+
+"ls -alh" // scan current folder
+"cd <file of interest>" // go to file of note
+"mget *" //grab everything from current file

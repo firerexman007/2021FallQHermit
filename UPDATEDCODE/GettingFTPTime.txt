@@ -1,0 +1,7 @@
+To get the timeing of a server like for timelock needs will run this code in terminal
+
+"nc" <IP> <PORT>    
+    //(IP example: 138.47.134.178)
+    //(PORT example: 54321)
+
+//This will connect and get time after this insure you disconect ctrl+d
