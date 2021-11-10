@@ -114,7 +114,7 @@ def byteStorage(Pwrap, Phidd, sentinel, Poffs, Pinte):
     n = 0
     # store hidden bytes in wrap file
     while(i < len(hiddenBytes)):
-        wrapBytes[Poffs] = hiddenBytes[Pinte]
+        wrapBytes[Poffs] = hiddenBytes[i]
         Poffs += Pinte
         i += 1
     # add sentinel bytes
