@@ -32,16 +32,18 @@ MANUAL_DATETIME = "2021 11 5 11 17 16" # example
 
 
 ###########Start of Program
-if((not(sys.stdin.isatty()))): # if there is input from start of run
-    if(sys.argv[1] == "h" or sys.argv[1] == "help"):
-        print('echo "YYYY MM DD HH mm SS" | python3 ' + sys.argv[0])
-        print("or")
-        print('python3 ' + sys.argv[0] + ' < input.txt') 
-        print("input or echo should be the epoch time") 
-        print("Will need to change MANUAL_DATETIME for servers")
-        print("To get server time run: nc (IP) (PORT)")
-        print("INSURE CLOSE THE CONNECTION:")     
-        exit(0)
+if(((sys.stdin.isatty()))): # if there is input from start of run   
+       if(sys.argv[1] == "h" or sys.argv[1] == "help"):
+            print('echo "YYYY MM DD HH mm SS" | python3 ' + sys.argv[0])
+            print("or")
+            print('python3 ' + sys.argv[0] + ' < input.txt') 
+            print("input or echo should be the epoch time") 
+            print("Will need to change MANUAL_DATETIME for servers")
+            print("To get server time run: nc (IP) (PORT)")
+            print("INSURE CLOSE THE CONNECTION:")     
+            exit(0)
+
+if((not(sys.stdin.isatty()))): # if there is not input
     # get input from .txt or echo
     epoch = sys.stdin.readline().rstrip()
     epoch = datetime.strptime(epoch, "%Y %m %d %H %M %S")
